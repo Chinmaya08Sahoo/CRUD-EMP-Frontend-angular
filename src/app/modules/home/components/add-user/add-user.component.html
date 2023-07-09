@@ -1,0 +1,65 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="enter employee name" formControlName="name">
+        <div *ngIf="userForm.controls['name'].invalid && (userForm.controls['name'].dirty || userForm.controls['name'].touched)"
+            class="alert">
+            <div *ngIf="userForm.controls['name'].errors?.['required']">
+                Please enter name
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Role</label>
+        <input type="text" class="form-control" id="role" placeholder="enter employee role" formControlName="role">
+        <div *ngIf="userForm.controls['role'].invalid && (userForm.controls['role'].dirty || userForm.controls['role'].touched)"
+            class="alert">
+            <div *ngIf="userForm.controls['role'].errors?.['required']">
+                Please enter role
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="text" class="form-control" id="email" placeholder="enter email address" formControlName="email">
+        <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)" class="alert">
+            <div *ngIf="userForm.controls['email'].errors?.['required']">
+            Please enter email
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Phone">Phone</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="enter phone number"
+            formControlName="phone">
+            <div *ngIf="userForm.controls['phone'].invalid && (userForm.controls['phone'].dirty || userForm.controls['phone'].touched)" class="alert">
+                <div *ngIf="userForm.controls['phone'].errors?.['required'] || userForm.controls['phone'].errors?.['pattern']">
+                Please enter valid phone number
+              </div>
+            </div>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="age" placeholder="enter age" formControlName="age">
+        <div *ngIf="userForm.controls['age'].invalid && (userForm.controls['age'].dirty || userForm.controls['age'].touched)" class="alert">
+            <div *ngIf="userForm.controls['age'].errors?.['required']">
+            Please enter age
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="textarea" class="form-control" id="address" placeholder="enter address" formControlName="address">
+        <div *ngIf="userForm.controls['address'].invalid && (userForm.controls['address'].dirty || userForm.controls['address'].touched)" class="alert">
+            <div *ngIf="userForm.controls['address'].errors?.['required']">
+            Please enter address
+          </div>
+        </div>
+    </div>
+    <div class="sub-btn">
+        <p>
+            <button type="submit" class="btn btn-dark" [disabled]="!userForm.valid">Submit</button>
+        </p>
+    </div>
+</form>
